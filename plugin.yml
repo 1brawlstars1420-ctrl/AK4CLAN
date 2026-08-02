@@ -1,1 +1,9 @@
-
+name: AK4CLAN
+version: 1.0.0
+main: com.ak4clan.plugin.Main
+api-version: '1.21'
+commands:
+  clan:
+    description: Comando principal del sistema de clanes
+    usage: /clan
+    
