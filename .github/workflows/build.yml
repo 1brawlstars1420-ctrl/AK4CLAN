@@ -1,1 +1,27 @@
+name: Build Plugin
 
+on: [push, pull_request]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AK4CLAN
+        path: build/libs/AK4CLAN.jar
+        
